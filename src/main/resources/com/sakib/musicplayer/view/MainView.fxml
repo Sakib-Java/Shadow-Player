@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="852.0" style="-fx-background-color: #1F1B2E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sakib.musicplayer.controller.Controller">
+    <bottom>
+        <Pane prefHeight="100.0" prefWidth="852.0" style="-fx-background-color: #382d42;" BorderPane.alignment="CENTER">
+            <Slider fx:id="volume_slider" layoutX="698.0" layoutY="50.0" majorTickUnit="10.0" minorTickCount="2"
+                    snapToTicks="true" stylesheets="@../css/Style.css" value="20.0"/>
+            <Button id="play_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="394.0" layoutY="18.0"
+                    mnemonicParsing="false" onAction="#onPlayButtonClick" prefHeight="65.0" prefWidth="65.0"
+                    stylesheets="@../css/Style.css"/>
+            <ImageView fx:id="play_icon" fitHeight="46.0" fitWidth="48.0" layoutX="408.0" layoutY="28.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/play.png"/>
+            </ImageView>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="323.0" layoutY="18.0"
+                    mnemonicParsing="false" onAction="#onSeek" prefHeight="65.0" prefWidth="65.0" styleClass="player"
+                    stylesheets="@../css/Style.css"/>
+            <ImageView fitHeight="70.0" fitWidth="53.0" layoutX="327.0" layoutY="24.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/rewind.png"/>
+            </ImageView>
+            <Button fx:id="forward_btn" alignment="CENTER" contentDisplay="CENTER" layoutX="465.0" layoutY="18.0"
+                    mnemonicParsing="false" onAction="#onSeek" prefHeight="65.0" prefWidth="65.0" styleClass="player"
+                    stylesheets="@../css/Style.css"/>
+            <ImageView fitHeight="70.0" fitWidth="53.0" layoutX="471.0" layoutY="24.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/fast_forward.png"/>
+            </ImageView>
+            <Label fx:id="volume_label" layoutX="698.0" layoutY="16.0" prefHeight="26.0" prefWidth="140.0"
+                   text="Volume: 20" textFill="#e1e1e1">
+                <font>
+                    <Font name="Segoe UI Semibold" size="16.0"/>
+                </font>
+            </Label>
+            <ImageView fitHeight="48.0" fitWidth="40.0" layoutX="652.0" layoutY="42.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/speaker.png"/>
+            </ImageView>
+            <ImageView fitHeight="61.0" fitWidth="69.0" layoutX="14.0" layoutY="20.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/Menu.png"/>
+            </ImageView>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="534.0" layoutY="19.0" mnemonicParsing="false"
+                    onAction="#onLoop" prefHeight="65.0" prefWidth="65.0" styleClass="player"
+                    stylesheets="@../css/Style.css"/>
+            <ImageView fitHeight="44.0" fitWidth="48.0" layoutX="544.0" layoutY="29.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/Loop.png"/>
+            </ImageView>
+            <ImageView fx:id="loop_icon" fitHeight="20.0" fitWidth="20.0" layoutX="557.0" layoutY="40.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false">
+                <Image url="@../images/Done.png"/>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="48.0" layoutX="258.0" layoutY="29.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/shuffle.png"/>
+            </ImageView>
+        </Pane>
+    </bottom>
+    <top>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="84.0" prefWidth="852.0" text="Shadow Player" textFill="#e1e1e1" BorderPane.alignment="CENTER">
+            <font>
+                <Font name="Segoe Print" size="36.0" />
+            </font>
+        </Label>
+    </top>
+    <center>
+        <Pane id="bg" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <ImageView fx:id="circle" fitHeight="320.0" fitWidth="320.0" layoutX="267.0" layoutY="-58.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.7;">
+                <Image url="@../images/neon_circle.png"/>
+            </ImageView>
+            <Slider fx:id="time_slider" layoutX="127.0" layoutY="248.0" majorTickUnit="20.0" minorTickCount="2"
+                    onMousePressed="#onSliderPressed" onMouseReleased="#onSliderReleased" prefHeight="40.0"
+                    prefWidth="600.0" stylesheets="@../css/Style.css"/>
+            <Label fx:id="end_time" alignment="CENTER" layoutX="731.0" layoutY="253.0" textAlignment="CENTER"
+                   textFill="#b0b0c0">
+                <font>
+                    <Font name="Segoe UI Semibold" size="18.0"/>
+                </font>
+            </Label>
+            <Label fx:id="current_time" alignment="CENTER" layoutX="86.0" layoutY="253.0" textAlignment="CENTER"
+                   textFill="#b0b0c0">
+                <font>
+                    <Font name="Segoe UI Semibold" size="18.0"/>
+                </font>
+            </Label>
+            <Label fx:id="song_name" alignment="CENTER" layoutX="1.0" layoutY="223.0" prefHeight="28.0"
+                   prefWidth="852.0" textFill="#b0b0c0">
+                <font>
+                    <Font name="Segoe UI Semibold" size="20.0"/>
+                </font>
+            </Label>
+            <ImageView fx:id="music_note" fitHeight="100.0" fitWidth="120.0" layoutX="370.0" layoutY="58.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../images/musical_notes.png"/>
+            </ImageView>
+        </Pane>
+    </center>
+</BorderPane>
