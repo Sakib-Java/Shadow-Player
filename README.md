@@ -4,6 +4,8 @@ A lightweight, modern desktop audio player built with Java and JavaFX. Features 
 
 ---
 
+https://github.com/user-attachments/assets/6507282e-8ed2-48ed-a0b6-45ace2b63d47
+
 *Real time app usage with bass reactive audio visualization and playback control.*
 
 ---
